@@ -1,5 +1,7 @@
 # Coordinator
 
+![](https://github.com/DanielCardonaRojas/Coordinator/workflows/Coordinator/badge.svg)
+
 A class based implementation of the coordinator pattern.
 
 https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps
