@@ -1,14 +1,29 @@
 import XCTest
 @testable import Coordinator
 
+class HomeCoordinator: Coordinator {
+
+    func goToProfile() {
+        startChild(ProfileCoordinator(), modal: true, animated: false)
+    }
+}
+
+class ProfileCoordinator: Coordinator {
+    init() {
+        super.init(value: Configuration(initialView: UIViewController()))
+    }
+}
+
 final class CoordinatorTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+
+    func testStartingChildAddChildToTree() {
+        let homeNavigation = HomeCoordinator(value: Configuration(initialView: UIViewController()))
+        homeNavigation.goToProfile()
+        let count = homeNavigation.children.count
+        XCTAssert(count == 1)
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("Starting child coordinator adds it to tree", testStartingChildAddChildToTree),
     ]
 }
