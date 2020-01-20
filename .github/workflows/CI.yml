@@ -9,7 +9,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build
-      run: swift build -v
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild clean test -scheme 'Coordinator' -destination "platform=iOS Simulator,name=iPhone 11,OS=latest"
